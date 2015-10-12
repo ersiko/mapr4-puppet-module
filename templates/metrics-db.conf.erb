@@ -1,0 +1,18 @@
+db.url=<%= @metrics_mysql_server%>:3306
+db.user=<%= @metrics_mysql_user%>
+db.passwd=<%= @metrics_mysql_pass%>
+db.schema=<%= @metrics_mysql_db%>
+db.mode=mysql
+db.driverclass=com.mysql.jdbc.Driver
+db.joblastacessed.limit.hours=48
+db.partition.finest.count.days=3
+db.partition.fine.count.days=15
+db.partition.coarse.count.years=100
+### Max amount records to query for Job management histogram
+db.job.histogram.query.records.max=10000
+db.task.histogram.query.records.max=10000
+### How many files with raw node metrics data to keep
+# Rotate metrics older than 30 days
+metric.file.rotate=30
+# Rotate metrics data if total size of metrics is >= 512 GB
+metric.file.cleanupthreshold=512

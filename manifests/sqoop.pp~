@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+class mapr4::sqoop inherits mapr {
+=======
+class mapr4::sqoop inherits mapr4 {
+>>>>>>> 6bdec3e2ab6b1b3b4ef108b0d434b444a795d928
+  package { "mapr-sqoop":
+  ensure => "1.4.5.201411051304"
+  }
+  file { "/opt/mapr/sqoop/sqoop-1.4.5/conf/sqoop-site.xml":
+    owner   => 'root',
+    group   => 'root',
+<<<<<<< HEAD
+    source  => "puppet:///modules/mapr4/sqoop-site.xml",
+=======
+    source  => "puppet:///modules/mapr/sqoop-site.xml",
+>>>>>>> 6bdec3e2ab6b1b3b4ef108b0d434b444a795d928
+    require => Package["mapr-sqoop"]
+  }
+  file { "/opt/mapr/sqoop/sqoop-1.4.5/conf/sqoop-env.sh":
+    owner   => 'root',
+    group   => 'root',
+<<<<<<< HEAD
+    source  => "puppet:///modules/mapr4/sqoop-env.sh",
+=======
+    source  => "puppet:///modules/mapr/sqoop-env.sh",
+>>>>>>> 6bdec3e2ab6b1b3b4ef108b0d434b444a795d928
+    require => Package["mapr-sqoop"]
+  }
+}

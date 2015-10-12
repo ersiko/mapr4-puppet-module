@@ -1,0 +1,3 @@
+deb http://package.mapr.com/releases/v4.1.0/ubuntu/ mapr optional
+deb http://package.mapr.com/releases/ecosystem-4.x/ubuntu binary/
+
