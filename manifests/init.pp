@@ -36,19 +36,16 @@ class mapr4($mapr_subnets, $mapr_cldb, $mapr_zookeeper, $mapr_gid, $mapr_uid, $m
     require => User["mapr"]
   }
 
-  puppi::netinstall { 'jdk8':
-    url                 => 'http://www.java.net/download/jdk8u40/archive/b23/binaries/jdk-8u40-ea-bin-b23-linux-x64-27_jan_2015.tar.gz',
-    destination_dir     => '/opt/', # Must Exist ...
-    extracted_dir       => 'jdk1.8.0_40',
-    owner               => 'root',
-    group               => 'root'
-  }
-  
   group { 'mapr':
     name                 => 'mapr',   
     gid                  => $mapr_gid,   
     ensure               => 'present',
   }
+
+  package { "whois":   
+    ensure => installed,    
+  }
+
   user { 'mapr':
     name                 => 'mapr',
     uid                  => $mapr_uid,
@@ -57,9 +54,6 @@ class mapr4($mapr_subnets, $mapr_cldb, $mapr_zookeeper, $mapr_gid, $mapr_uid, $m
     password             => generate('/bin/sh', '-c', "mkpasswd -m sha-512 -S M14.FQmovKJs ${mapr_pass} | tr -d '\n'"),
     ensure               => 'present',
     require              => [ Group["mapr"], Package["whois"] ],
-  }
-    package { "whois":   
-    ensure => installed,    
   }
 
   file { '/var/mapr':
