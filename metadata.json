@@ -1,0 +1,16 @@
+{
+  "name": "ersiko-mapr4",
+  "version": "0.1.0",
+  "author": "Tomas Nunez",
+  "summary": "Module for installing Mapr4",
+  "license": "Apache 2.0",
+  "source": "https://github.com/ersiko/mapr4-puppet-module",
+  "project_page": "https://github.com/ersiko/mapr4-puppet-module",
+  "issues_url": "https://github.com/ersiko/mapr4-puppet-module/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
