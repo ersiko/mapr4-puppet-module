@@ -1,1 +1,1 @@
-/dev/sdb
+/dev/xvdf
