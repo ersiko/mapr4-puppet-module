@@ -1,6 +1,7 @@
 class mapr4($mapr_subnets, $mapr_cldb, $mapr_zookeeper, $mapr_gid, $mapr_uid, $mapr_pass) {
   exec { "apt-update":
-    command => "/usr/bin/apt-get update;wget -O - http://package.mapr.com/releases/pub/gnugpg.key | sudo apt-key add -"
+    command => "/usr/bin/apt-get update;wget -O - http://package.mapr.com/releases/pub/gnugpg.key | sudo apt-key add -",
+    refreshonly => true
   }
 
   exec { "configure.sh":

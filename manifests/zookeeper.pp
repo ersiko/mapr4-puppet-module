@@ -2,7 +2,7 @@ class mapr4::zookeeper inherits mapr4 {
 
   package { "mapr-zookeeper":
     ensure => $mapr_version,
-    require => User[mapr],
+    require => [ User[mapr], Exec["apt-update"] ]
   }
 
   service { "mapr-zookeeper":
@@ -15,8 +15,8 @@ class mapr4::zookeeper inherits mapr4 {
     source => 'puppet:///modules/mapr4/zoo.cfg',
     owner => mapr,
     group => mapr,
-    require => [ Package["mapr-zookeeper"], Exec["configure.sh"] ],
-    notify => Service["mapr-zookeeper"],
+    require => Package["mapr-zookeeper"]
+    notify => [ Service["mapr-zookeeper"], Exec["configure.sh"] ]
   }
 
 }
