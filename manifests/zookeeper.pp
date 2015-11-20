@@ -2,7 +2,8 @@ class mapr4::zookeeper inherits mapr4 {
 
   package { "mapr-zookeeper":
     ensure => $mapr_version,
-    require => [ User[mapr], Exec["apt-update"] ]
+    require => [ User[mapr], Exec["apt-update"] ],
+    before => Package["mapr-core"]
   }
 
   service { "mapr-zookeeper":
